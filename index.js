@@ -29,7 +29,7 @@ smtp.onMail(function(mail){
 
     mail.attachments.forEach(function(att){
         var ext = att.contentType.split('/')[1];
-        queue.push([sender, ext, content]);
+        queue.push([sender, ext, att.content]);
     });
 
     if (mail.attachments.length == 0) {
