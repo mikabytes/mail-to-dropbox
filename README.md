@@ -20,13 +20,14 @@ On Dokku you can set these using `dokku config:set KEY1=VALUE1 KEY2=VALUE2`
 ## Additional steps to set-up on Dokku
 
 1. You will need to turn off CHECKS, so do a:
-   `dokku myapp checks:disable`
+    `dokku myapp checks:disable`
 2. Dokku doesn't port-forward SMTP by default, so run this command:
-   `dokku docker-options:add myapp deploy '-p 0.0.0.0:25:25'`
+    `dokku docker-options:add myapp deploy '-p 0.0.0.0:25:25'`
 
 ## What is saved
 
 The algorithm will try to save stuff in the following order:
+
 1. If there are attachments, then save only attachments
 2. If there is a HTML body, then save only HTML body
 3. If all else fails, save the TEXT body
