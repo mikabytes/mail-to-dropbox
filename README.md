@@ -38,3 +38,9 @@ It will try to use the reverse sender domain by default. So if you get a mail fr
 it will use the name "evilcompany sales". It will also add attachment extension, or ".htm", or ".txt"
 
 If a file already exists with the generated name it will prepend it with (1), then (2), etc...
+
+## Any other goodies for me?
+
+Yes one.
+
+1. You can use the mail address directly with 3rd party services, but then all mails go there. If you want more flexibility I highly suggest using a GMail account and add filters to forward only the mails that you really want to end up in Dropbox.
