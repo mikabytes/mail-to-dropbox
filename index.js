@@ -6,16 +6,22 @@ var queue = [];
 smtp.onMail(function(mail){
     var from = mail.from[0].address;
     var to = mail.to[0].address;
+    var subject = mail.subject;
 
     console.log()
     console.log("New message");
     console.log("From: " + from);
     console.log("To: " + to);
 
+    if (subject.indexOf('Fwd:') == 0) {
+        var origFrom = /From:.*<.*@([a-zA-Z0-9.-_]+)>/.exec(mail.text)[1];
+        if (origFrom) {
+            from = origFrom;
+        }
+    }
+
     var sender = from.split('@')[1].split('.').slice(0, -1).reverse().join(' ');
     console.log("Sender: "+sender);
-
-    console.log(Object.keys(mail));
 
     if (!mail.attachments) {
         mail.attachments = [];
