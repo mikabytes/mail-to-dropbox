@@ -14,7 +14,7 @@ smtp.onMail(function(mail){
     console.log("To: " + to);
 
     if (subject.indexOf('Fwd:') == 0) {
-        var origFrom = /From:.*<.*@([a-zA-Z0-9.-_]+)>/.exec(mail.text)[1];
+        var origFrom = /From:.*<([^>]+)>/.exec(mail.text)[1];
         if (origFrom) {
             from = origFrom;
         }
